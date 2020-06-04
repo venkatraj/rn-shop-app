@@ -14,8 +14,12 @@ const Product = (props) => {
         <Text style={styles.price}>{price}</Text>
       </View>
       <View style={styles.actions}>
-        <Button color={Colors.primary} title="View Details" />
-        <Button color={Colors.primary} title="To Cart" />
+        <Button
+          color={Colors.primary}
+          title="View Details"
+          onPress={onViewDetails}
+        />
+        <Button color={Colors.primary} title="To Cart" onPress={onAddToCart} />
       </View>
     </View>
   );
