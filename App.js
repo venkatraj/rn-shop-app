@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import React from 'react';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+import ShopNavigator from './navigation/ShopNavigator';
 
+const store = configureStore();
 export default function App() {
   return (
-    <View style={styles.rootContainer}>
-      <Text>Hello World</Text>
-    </View>
+    <Provider store={store}>
+      <ShopNavigator />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  rootContainer: {
-    paddingVertical: 50,
-    paddingHorizontal: 15,
-  },
-});
