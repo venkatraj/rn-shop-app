@@ -7,18 +7,24 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
+import { useDispatch } from 'react-redux';
 import Colors from '../../constants/Colors';
-// import { ScrollView } from 'react-native-gesture-handler';
+import { addToCart } from '../../store/actions/cart';
 
 const ProductDetailScreen = (props) => {
   const { route } = props;
   const { imageUrl, price, description } = route.params.product;
+  const dispatch = useDispatch();
 
   return (
     <ScrollView>
       <Image style={styles.image} source={{ uri: imageUrl }} />
       <View style={styles.actions}>
-        <Button color={Colors.primary} title="Add To Cart" />
+        <Button
+          color={Colors.primary}
+          title="Add To Cart"
+          onPress={() => dispatch(addToCart(route.params.product))}
+        />
       </View>
       <Text style={styles.price}>{price}</Text>
       <Text style={styles.description}>{description}</Text>
