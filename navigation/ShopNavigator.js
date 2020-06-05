@@ -2,18 +2,26 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import ProductsOverviewScreen from '../screens/shop/ProductsOverviewScreen';
 import Colors from '../constants/Colors';
+import ProductsOverviewScreen from '../screens/shop/ProductsOverviewScreen';
 import ProductDetailScreen from '../screens/shop/ProductDetailScreen';
+import CartScreen from '../screens/shop/CartScreen';
+import CartButton from '../components/UI/CartButton';
 
 const Stack = createStackNavigator();
 
 const ShopNavigator = () => {
-  const screenOptions = {
-    headerStyle: {
-      backgroundColor: Colors.primary,
-    },
-    headerTintColor: 'white',
+  const screenOptions = (props) => {
+    const { navigation } = props;
+    return {
+      headerStyle: {
+        backgroundColor: Colors.primary,
+      },
+      headerTintColor: 'white',
+      headerRight: () => {
+        return <CartButton onPress={() => navigation.navigate('Cart')} />;
+      },
+    };
   };
 
   const homeScreenOptions = {
@@ -35,6 +43,7 @@ const ShopNavigator = () => {
             title: route.params.product.title,
           })}
         />
+        <Stack.Screen name="Cart" component={CartScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
