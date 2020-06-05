@@ -4,7 +4,7 @@ import configureStore from './store/configureStore';
 import ShopNavigator from './navigation/ShopNavigator';
 
 const store = configureStore();
-store.subscribe(() => console.log(store.getState().cartItems));
+store.subscribe(() => console.log(store.getState()));
 
 export default function App() {
   return (

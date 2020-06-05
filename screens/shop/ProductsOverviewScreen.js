@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import Product from '../../components/Product';
+import Product from '../../components/shop/Product';
 import { addToCart } from '../../store/actions/cart';
 
 const ProductsOverviewScreen = (props) => {
