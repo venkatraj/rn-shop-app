@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Image, View, Text, StyleSheet } from 'react-native';
-import Colors from '../constants/Colors';
+import Colors from '../../constants/Colors';
 
 const Product = (props) => {
   const { title, imageUrl, price } = props.data;
