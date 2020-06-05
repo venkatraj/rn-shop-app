@@ -26,6 +26,10 @@ const cartReducer = (state = {}, action) => {
         ...state,
         [product.id]: cartItem,
       };
+    case 'REMOVE_FROM_CART':
+      const updatedState = { ...state };
+      delete updatedState[action.productId];
+      return updatedState;
     default:
       return state;
   }
