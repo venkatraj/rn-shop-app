@@ -5,8 +5,9 @@ const cartReducer = (state = {}, action) => {
       let cartItem;
       if (product.id in state) {
         cartItem = state[product.id];
-        const { quantity, title, price, totalAmount } = cartItem;
+        const { id, quantity, title, price, totalAmount } = cartItem;
         cartItem = {
+          id,
           quantity: quantity + 1,
           title: title,
           price: price,
@@ -14,6 +15,7 @@ const cartReducer = (state = {}, action) => {
         };
       } else {
         cartItem = {
+          id: product.id,
           quantity: 1,
           title: product.title,
           price: product.price,
